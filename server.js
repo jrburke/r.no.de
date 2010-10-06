@@ -19,7 +19,7 @@
     var fs = require("fs"),
         sys = require("sys"),
         cwd = process.cwd(),
-        appFilePath = process.argv[2],
+        appFilePath = 'index.js',
         isDebug = false,
         appDir;
 
@@ -51,5 +51,5 @@
     process.compile("require({baseUrl: '" + appDir + "'});", "baseUrl");
 
     //Showtime!
-    process.compile(fs.readFileSync('index.js'), 'index.js');
+    process.compile(fs.readFileSync(appFilePath), appFilePath);
 }());
